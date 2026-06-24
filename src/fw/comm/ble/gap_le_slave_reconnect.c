@@ -147,6 +147,9 @@ static void prv_evaluate(ReconnectType prev_type) {
         },
     };
 
+    const GAPLEAdvertisingJobTag tag = use_hrm_payload
+        ? GAPLEAdvertisingJobTagHRMReconnection
+        : GAPLEAdvertisingJobTagReconnection;
     const GAPLEAdvertisingJobTerm *terms = advert_terms;
     uint8_t num_terms = ARRAY_LENGTH(advert_terms);
     // HRM reconnection is user-initiated and time-bounded, don't back it off.
@@ -158,7 +161,7 @@ static void prv_evaluate(ReconnectType prev_type) {
 
     s_reconnect_advert_job = gap_le_advert_schedule(
         ad, terms, num_terms,
-        prv_advert_job_unscheduled_callback, NULL, GAPLEAdvertisingJobTagReconnection);
+        prv_advert_job_unscheduled_callback, NULL, tag);
 
     if (use_hrm_payload) {
       ble_ad_destroy(ad);
