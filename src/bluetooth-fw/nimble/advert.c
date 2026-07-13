@@ -13,7 +13,7 @@
 #include <host/ble_hs_hci.h>
 #include <system/logging.h>
 #include <system/passert.h>
-#include <util/math.h>
+#include <pbl/util/math.h>
 
 #include "nimble_pebble_pairing_service.h"
 #include "nimble_type_conversions.h"

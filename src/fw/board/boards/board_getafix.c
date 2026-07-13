@@ -488,8 +488,13 @@ const BoardConfigPower BOARD_CONFIG_POWER = {
 
 const BoardConfig BOARD_CONFIG = {
   .backlight_on_percent = 25,
-  .ambient_light_dark_threshold = 150,
-  .ambient_k_delta_threshold = 25,
+  .ambient_light_dark_threshold = 800,
+  .ambient_k_delta_threshold = 100,
+  // Bench-calibrated on 1 DVT2 unit, fit above 4500 lux; readings below
+  // ~4000 lux deviated from the fit on that unit and need a re-measure.
+  .ambient_light_lux_dark_offset = 0,
+  .ambient_light_lux_num = 50,
+  .ambient_light_lux_den = 517,
 };
 
 const BoardConfigButton BOARD_CONFIG_BUTTON = {
