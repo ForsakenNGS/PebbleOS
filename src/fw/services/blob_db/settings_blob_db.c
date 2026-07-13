@@ -14,8 +14,8 @@
 #include "system/logging.h"
 #include "system/passert.h"
 #include "pbl/services/system_task.h"
-#include "util/list.h"
-#include "util/size.h"
+#include "pbl/util/list.h"
+#include "pbl/util/size.h"
 
 #include <string.h>
 
@@ -65,8 +65,8 @@ static const char *s_syncable_settings[] = {
   "lightTouch",
   "lightAmbientThreshold",
 #ifdef CONFIG_DYNAMIC_BACKLIGHT
-  "lightDynamicIntensity",
-  "dynBacklightMinThreshold",
+  "lightDynamicMode",
+  "lightPreset",
 #endif
 #ifdef CONFIG_BACKLIGHT_HAS_COLOR
   "lightColor",
