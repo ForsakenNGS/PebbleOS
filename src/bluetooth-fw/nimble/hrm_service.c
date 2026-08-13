@@ -8,7 +8,7 @@
 #include <host/ble_gatt.h>
 #include <host/ble_hs.h>
 #include <os/os_mbuf.h>
-#include <system/logging.h>
+#include <pbl/logging/logging.h>
 #include <system/passert.h>
 
 #include "nimble_type_conversions.h"
