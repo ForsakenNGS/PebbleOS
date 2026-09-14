@@ -28,18 +28,18 @@ typedef struct ColorDefinition {
 } ColorDefinition;
 
 static const ColorDefinition s_color_definitions[12] = {
-  {"Default", GColorClear},
-  {"Invert", GColorClear},
-  {"Red", GColorSunsetOrange},
-  {"Orange", GColorChromeYellow},
-  {"Yellow", GColorYellow},
-  {"Green", GColorGreen},
-  {"Cyan", GColorCyan},
-  {"Light Blue", GColorVividCerulean},
-  {"Royal Blue", GColorVeryLightBlue},
-  {"Purple", GColorLavenderIndigo},
-  {"Magenta", GColorMagenta},
-  {"Pink", GColorBrilliantRose},
+  {i18n_noop("Default"), GColorClear},
+  {i18n_noop("Invert"), GColorClear},
+  {i18n_noop("Red"), GColorSunsetOrange},
+  {i18n_noop("Orange"), GColorChromeYellow},
+  {i18n_noop("Yellow"), GColorYellow},
+  {i18n_noop("Green"), GColorGreen},
+  {i18n_noop("Cyan"), GColorCyan},
+  {i18n_noop("Light Blue"), GColorVividCerulean},
+  {i18n_noop("Royal Blue"), GColorVeryLightBlue},
+  {i18n_noop("Purple"), GColorLavenderIndigo},
+  {i18n_noop("Magenta"), GColorMagenta},
+  {i18n_noop("Pink"), GColorBrilliantRose},
 };
 static const char* color_names[ARRAY_LENGTH(s_color_definitions)];
 static bool color_names_initialized = false;
@@ -104,7 +104,7 @@ static void prv_option_menu_selection_will_change(OptionMenu *option_menu,
   if (new_row == old_row) {
     return;
   }
-  GColor normal_bg = shell_prefs_get_theme_dark_background() ? GColorBlack : GColorWhite;
+  GColor normal_bg = shell_prefs_get_theme_normal_background();
   option_menu_set_status_colors(option_menu, normal_bg, gcolor_legible_over(normal_bg));
   if (new_row == INVERT_ENTRY_INDEX) {
     GColor color = shell_prefs_get_theme_dark_background() ? GColorWhite : GColorBlack;
@@ -168,7 +168,7 @@ static void prv_theme_menu_selection_will_change(OptionMenu *option_menu, uint16
   if (new_row == old_row) {
     return;
   }
-  GColor normal_bg = shell_prefs_get_theme_dark_background() ? GColorBlack : GColorWhite;
+  GColor normal_bg = shell_prefs_get_theme_normal_background();
   option_menu_set_status_colors(option_menu, normal_bg, gcolor_legible_over(normal_bg));
   GColor highlight_bg = shell_prefs_get_theme_highlight_color();
   option_menu_set_highlight_colors(option_menu, highlight_bg, gcolor_legible_over(highlight_bg));
@@ -176,7 +176,7 @@ static void prv_theme_menu_selection_will_change(OptionMenu *option_menu, uint16
 
 static OptionMenu *prv_push_background_menu(void) {
   const char *title = i18n_noop("Background");
-  static const char *s_background_names[] = { "Light", "Dark" };
+  static const char *s_background_names[] = { i18n_noop("Light"), i18n_noop("Dark") };
   int selected = shell_prefs_get_theme_dark_background() ? 1 : 0;
   const OptionMenuCallbacks callbacks = {
     .select = prv_background_menu_select,
