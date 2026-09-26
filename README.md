@@ -25,9 +25,6 @@
 > branch no longer carries a backport for it.
 >
 > Added on top:
-> - the app launcher (main menu) now follows Text Size too — fonts, row height, glance cache
->   size, and the Settings glance's battery/charging icons
-> - system-menu cell height/font aligned with the launcher's (was mismatched at "Large")
 > - the watchface picker now follows Text Size too
 > - system option menus (radio-button lists), including the Text Size picker itself, now follow
 >   Text Size too
@@ -43,7 +40,9 @@
 >   redesign attempt that was otherwise reverted in Feb 2026)
 > - a Bold Subtitles toggle (Settings → Display): bolds menu cell subtitles system-wide, for
 >   readability
-> - system-menu cell height/font aligned with the launcher's (was mismatched at Large/ExtraLarge)
+> - system-menu subtitle text uses coredevices' own font sizes at Large/ExtraLarge, but at a
+>   tighter cell height than their build (58px/66px vs. their 61px/85px) — their own numbers
+>   leave up to 19px of unused padding per row
 >
 > See the commit history for full details.
 
