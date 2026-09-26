@@ -12,23 +12,17 @@
   <a href="https://forum.repebble.com/"><img src="https://img.shields.io/discourse/posts?server=https%3A%2F%2Fforum.repebble.com&label=forum"></a>
 </p>
 
-> **Fork note (`v4.36.2-ua-branch`):** personal daily-driver branch by
+> **Fork note (`v4.38.2-ua-branch`):** personal daily-driver branch by
 > [uaparit](https://github.com/uaparit), the build actually flashed to the watch. Based on
-> [`v4.36.2`](https://github.com/coredevices/PebbleOS/releases/tag/v4.36.2). Released builds are
-> tagged `v4.36.2-uaX.Y` on this branch (see
+> [`v4.38.2`](https://github.com/coredevices/PebbleOS/releases/tag/v4.38.2). Released builds are
+> tagged `v4.38.2-uaX.Y` on this branch (see
 > [Releases](https://github.com/uaparit/PebbleOS/releases)) — the branch name itself doesn't
 > carry a patch number, since a new `ua` tag doesn't always mean new commits here (e.g. a
 > rebuild with a different compile flag).
 >
-> Backported from upstream `main` (not yet in the `4.36.x` release line), 7 commits by Jeff
-> Hampton that add the "Text Size" preference (Settings → Display):
-> - [`fd4777e58`](https://github.com/coredevices/PebbleOS/commit/fd4777e58) fw/shell: design the ExtraLarge text tier
-> - [`a971489be`](https://github.com/coredevices/PebbleOS/commit/a971489be) fw/applib/ui: design ExtraLarge menu cell dimensions
-> - [`e6509c418`](https://github.com/coredevices/PebbleOS/commit/e6509c418) fw/applib/ui: honor preferred content size in system menus
-> - [`aff65c73a`](https://github.com/coredevices/PebbleOS/commit/aff65c73a) fw/shell/prf: stub out the content size preference
-> - [`3c2fe5ff7`](https://github.com/coredevices/PebbleOS/commit/3c2fe5ff7) fw/apps/system/settings: use the standard cell height for the root menu
-> - [`d7f2ede0c`](https://github.com/coredevices/PebbleOS/commit/d7f2ede0c) fw/apps/system/settings: move Text Size to Display
-> - [`6388ba14f`](https://github.com/coredevices/PebbleOS/commit/6388ba14f) fw: relayout open settings menus on text size change
+> The "Text Size" preference (Settings → Display) that earlier branches of this fork backported
+> is now part of upstream `main` as of `v4.38.0`, with its own independent implementation — this
+> branch no longer carries a backport for it.
 >
 > Added on top:
 > - the app launcher (main menu) now follows Text Size too — fonts, row height, glance cache
@@ -47,6 +41,9 @@
 > - the Settings menu's icons are enabled (existing, unused-until-now firmware feature) and its
 >   main list is back to a white background by default (a stray leftover from an upstream
 >   redesign attempt that was otherwise reverted in Feb 2026)
+> - a Bold Subtitles toggle (Settings → Display): bolds menu cell subtitles system-wide, for
+>   readability
+> - system-menu cell height/font aligned with the launcher's (was mismatched at Large/ExtraLarge)
 >
 > See the commit history for full details.
 
